@@ -78,5 +78,13 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/anselmodev/number-abbreviation.git"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
