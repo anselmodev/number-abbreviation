@@ -1,0 +1,82 @@
+{
+  "version": "0.0.0-development",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --no-cache",
+    "test:w": "tsdx test --no-cache --watch",
+    "test:cov": "tsdx test --no-cache --coverage",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "number-abbreviation",
+  "author": "Anselmo Lima - @anselmodev",
+  "bugs": {
+    "url": "https://github.com/anselmodev/number-abbreviation/issues"
+  },
+  "homepage": "https://github.com/anselmodev/number-abbreviation#readme",
+  "module": "dist/number-abbreviation.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/number-abbreviation.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/number-abbreviation.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "keywords": [
+    "abbreviation",
+    "abbreviate",
+    "abbr",
+    "number-abbreviation",
+    "number"
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^8.2.6",
+    "cz-conventional-changelog": "3.3.0",
+    "husky": "^8.0.3",
+    "size-limit": "^8.2.6",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.6.0",
+    "typescript": "^5.1.6",
+    "esbuild": "^0.16.10",
+    "semantic-release": "^19.0.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anselmodev/number-abbreviation.git"
+  }
+}
