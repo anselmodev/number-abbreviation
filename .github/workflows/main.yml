@@ -59,7 +59,7 @@ jobs:
         uses: bahmutov/npm-install@v1
       
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_SEMANTIC_VERSION_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - run: npx semantic-release
