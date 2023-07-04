@@ -12,11 +12,6 @@ jobs:
     name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
 
     runs-on: ${{ matrix.os }}
-    permissions:
-      contents: write # to be able to publish a GitHub release
-      issues: write # to be able to comment on released issues
-      pull-requests: write # to be able to comment on released pull requests
-      id-token: write # to enable use of OIDC for npm provenance
     strategy:
       matrix:
         node: ['14.x', '16.x', '18.x']
@@ -36,30 +31,3 @@ jobs:
 
       - name: Test
         run: yarn test --ci --coverage --maxWorkers=2
-
-  publish:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write # to be able to publish a GitHub release
-      issues: write # to be able to comment on released issues
-      pull-requests: write # to be able to comment on released pull requests
-      id-token: write # to enable use of OIDC for npm provenance
-    if: ${{ github.ref == 'refs/heads/master' }}
-    needs: [build]
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
-      - name: Use Node ${{ matrix.node }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }}
-
-      - name: Install deps and build (with cache)
-        uses: bahmutov/npm-install@v1
-      
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_SEMANTIC_VERSION_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - run: npx semantic-release

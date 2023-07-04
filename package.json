@@ -1,5 +1,5 @@
 {
-  "version": "0.0.0-development",
+  "version": "0.0.1",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -77,11 +77,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/anselmodev/number-abbreviation.git"
-  },
-  "release": {
-    "branches": [
-      "master"
-    ]
   },
   "publishConfig": {
     "access": "public"
