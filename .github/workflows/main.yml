@@ -1,17 +1,25 @@
 name: CI
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build:
     name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
 
     runs-on: ${{ matrix.os }}
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+      id-token: write # to enable use of OIDC for npm provenance
     strategy:
       matrix:
-        node: ['14.x', '16.x', '18.x', '19.x']
+        node: ['14.x', '16.x', '18.x']
         os: [ubuntu-latest]
 
     steps:
