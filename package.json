@@ -36,6 +36,7 @@
   },
   "name": "number-abbreviation",
   "author": "Anselmo Lima - @anselmodev",
+  "description": "A simple number abbreviation tool.",
   "bugs": {
     "url": "https://github.com/anselmodev/number-abbreviation/issues"
   },
